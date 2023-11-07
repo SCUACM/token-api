@@ -24,16 +24,16 @@ app.get('/v1/token', (req, res) => {
 
 app.get("/v1/data", (req,res) => {
     if (!req.headers.authorization || !req.headers.authorization.split(' ')[1]) {
-        return res.status(403).json({ error: 'No credentials sent!' });
+        return res.status(403).json({ error: 'Invalid credentials!' });
     }
     console.log(req.headers.authorization);
     const token = req.headers.authorization.split(' ')[1];
     const value = token.split("SecretToken")[1];
     if(!validTokens.includes(value)) {
-        return res.status(403).json({ error: 'No credentials sent!' });
+        return res.status(403).json({ error: 'Invalid credentials!' });
     }
     return res.send({
-        message: "You successfully called the API!"
+        message: "You successfully called the API with your Authentication token!"
     })
 })
 
