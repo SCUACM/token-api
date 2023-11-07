@@ -22,7 +22,7 @@ app.get('/v1/token', (req, res) => {
     })
 });
 
-app.get("/v1/test", (req,res) => {
+app.get("/v1/data", (req,res) => {
     if (!req.headers.authorization || !req.headers.authorization.split(' ')[1]) {
         return res.status(403).json({ error: 'No credentials sent!' });
     }
