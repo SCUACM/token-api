@@ -3,8 +3,8 @@ const app = express();
 const port = 3000;
 
 
-app.get('/v1/', (req, res) => {
-  res.send('Hello World!');
+app.get('/', (req, res) => {
+  res.send({message: "API is working!", status: 200});
 });
 
 app.get('/v1/token', (req, res) => {
